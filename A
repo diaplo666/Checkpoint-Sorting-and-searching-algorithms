@@ -1,0 +1,13 @@
+FOR i FROM 1 TO LENGTH(arr) - 1 DO
+    key := arr[i]   // current element to be compared and inserted
+    j := i - 1      // start with the element to the left of the current one
+
+    // Move elements of arr[0..i-1] that are greater than key to one position ahead of their current position
+    WHILE j >= 0 AND arr[j] > key DO
+        arr[j + 1] := arr[j]
+        j := j - 1
+    END_WHILE
+
+    // Insert the key into its correct position in the sorted sequence
+    arr[j + 1] := key
+END_FOR
